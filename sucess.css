@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+
+}
+
+/* Estilos mobile */
+@media (max-width: 375px) {
+.container {
+  width: 375px; 
+}
+}
+
+/* Estilos desktop */ 
+@media (min-width: 1440px) {
+.container {
+  width: 1440px;
+}
+}
+
+
+body {
+background-color: hsl(235, 18%, 26%);
+}
+
+.container {
+background-color: white;
+max-width: 480px;
+height: 450px;
+border-radius: 20px;
+margin-top: 10rem;
+margin-left: auto;
+margin-right: auto;
+align-items: center;
+box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.25);
+}
+
+.container img {
+    width: 50px;
+    height: 50%;
+    margin-top: 2.5rem;
+    margin-left: 3.5rem;
+    margin-bottom: 1.2rem;
+    float: left;
+     
+   }
+   
+   .container h1 {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-size: 45px;
+    text-align: left;
+    margin-left: 3.5rem;
+    padding-top: 7.5rem;
+    color: hsl(234, 29%, 20%);
+   }
+
+   .text p {
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    text-align: left;
+    font-weight: 400;
+     margin-left: 3.5rem;
+     padding-top: 1.5rem;
+     color: hsl(234, 29%, 20%);
+    
+  }
+
+  button {
+    font-family: "Roboto", sans-serif;
+    background-color:hsl(234, 29%, 20%) ;
+    color: white ;
+    font-size: 13px;
+    font-weight: 700;
+    margin-left: 3.5rem ;
+    padding: 15px;
+    width: 365px ;
+    border-radius: 6px;
+    margin-top: 2.5rem;
+    cursor: pointer;
+    transition: 0.3s all;
+    display: inline-block;
+    border: none;
+  
+  } 
+  
+  button:active {
+    scale: 0.92;
+  }
+  
+  button:hover{
+    background-position: absolute;
+    background-image: none;
+    background-color: linear-gradient( 90deg, #f84c80 30%, #fc5d0d 100%);
+    background: linear-gradient( 90deg, #f84c80 30%,#fc5d0d 100%);
+    transform: 0.3s;
+    background-clip: bottom;
+    -webkit-bottom-fill-color: transparent;
+     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+  }
