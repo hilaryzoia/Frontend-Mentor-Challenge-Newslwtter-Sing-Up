@@ -1,43 +1,57 @@
-document.addEventListener('DOMContentLoaded', (event) => {
-  const form = document.getElementById('form');
-  const emailInput = document.getElementById('email');
-  const errorMessage = document.getElementById('email-error');
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('form');
+    const emailInput = document.getElementById('email');
+    const errorMessage = document.getElementById('error-email');
+    const button = document.querySelector('button');
 
-  // Initially hide the error message
-  errorMessage.style.display = 'none'; 
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const email = emailInput.value.trim();
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        
+        if (!email) {
+            showError('Email is required');
+        } else if (!emailRegex.test(email)) {
+            showError('Valid email required');
+        } else {
+            hideError();
+            // Aqui você pode adicionar o código para enviar o formulário
+           window.location.href = 'sucess.html'
+        }
+    });
 
-  form.addEventListener('submit', (e) => {
-    // Prevent default form submission regardless of validation outcome initially
-    e.preventDefault(); 
-
-    const emailValue = emailInput.value.trim();
-    // Standard regex for basic email format validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; 
-
-    // Check if email is empty or doesn't match the regex pattern
-    if (emailValue === "" || !emailRegex.test(emailValue)) {
-      // Email is not valid
-      emailInput.classList.add('error'); // Add error class for styling
-      errorMessage.style.display = 'block'; // Show the custom error message
-    } else {
-      // Email is valid
-      emailInput.classList.remove('error'); // Remove error class
-      errorMessage.style.display = 'none'; // Hide the error message
-
-      // Store the valid email in localStorage to display on the success page
-      localStorage.setItem('subscribedEmail', emailValue);
-
-      // Redirect to success page
-      // Ensure 'sucess.html' is the correct path relative to index.html
-      window.location.href = 'sucess.html'; 
+    function showError(message) {
+        errorMessage.textContent = message;
+        errorMessage.style.display = 'block';
+        emailInput.classList.add('input-error');
     }
-  });
 
-  // Optional: Remove error state when user starts typing again
-  emailInput.addEventListener('input', () => {
-      if (emailInput.classList.contains('error')) {
-          emailInput.classList.remove('error');
-          errorMessage.style.display = 'none';
-      }
-  });
+    function hideError() {
+        errorMessage.style.display = 'none';
+        emailInput.classList.remove('input-error');
+    }
+
+    // Limpar erro quando o usuário começar a digitar
+    emailInput.addEventListener('input', function() {
+        if (emailInput.classList.contains('input-error')) {
+            hideError();
+        }
+    });
+
+    // Efeito adicional no botão para melhor feedback
+    button.addEventListener('mouseenter', function() {
+        if (!button.classList.contains('loading')) {
+            button.style.transform = 'translateY(-2px)';
+        }
+    });
+
+    button.addEventListener('mouseleave', function() {
+        if (!button.classList.contains('loading')) {
+            button.style.transform = 'translateY(0)';
+        }
+    });
 });
+
+
+  
