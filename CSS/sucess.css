@@ -2,101 +2,268 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Roboto", sans-serif;
-
 }
 
-/* Estilos mobile */
-@media (max-width: 375px) {
-.container {
-  width: 375px; 
-}
-}
-
-/* Estilos desktop */ 
-@media (min-width: 1440px) {
-.container {
-  width: 1440px;
-}
-}
-
-
+/* ESTILOS GERAIS */
 body {
-background-color: hsl(235, 18%, 26%);
+    font-family: "Roboto", sans-serif;
+    background-color: hsl(235, 18%, 26%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
 }
 
+/* PÁGINA PRINCIPAL */
 .container {
-background-color: white;
-max-width: 480px;
-height: 450px;
-border-radius: 20px;
-margin-top: 10rem;
-margin-left: auto;
-margin-right: auto;
-align-items: center;
-box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.25);
+    display: flex;
+    background-color: white;
+    border-radius: 30px;
+    padding: 20px;
+    max-width: 850px;
+    width: 100%;
+    gap: 40px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
-.container img {
-    width: 50px;
-    height: 50%;
-    margin-top: 2.5rem;
-    margin-left: 3.5rem;
-    margin-bottom: 1.2rem;
-    float: left;
-     
-   }
-   
-   .container h1 {
-    font-family: "Roboto", sans-serif;
-    font-weight: 700;
-    font-size: 45px;
-    text-align: left;
-    margin-left: 3.5rem;
-    padding-top: 7.5rem;
+.content {
+    flex: 1;
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.image-container {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#illustration {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+}
+
+h1 {
+    font-size: 3.2rem;
     color: hsl(234, 29%, 20%);
-   }
-
-   .text p {
-    font-family: "Roboto", sans-serif;
-    font-size: 16px;
-    text-align: left;
-    font-weight: 400;
-     margin-left: 3.5rem;
-     padding-top: 1.5rem;
-     color: hsl(234, 29%, 20%);
-    
-  }
-
-  button {
-    font-family: "Roboto", sans-serif;
-    background-color:hsl(234, 29%, 20%) ;
-    color: white ;
-    font-size: 13px;
+    margin-bottom: 20px;
     font-weight: 700;
-    margin-left: 3.5rem ;
-    padding: 15px;
-    width: 365px ;
-    border-radius: 6px;
-    margin-top: 2.5rem;
-    cursor: pointer;
-    transition: 0.3s all;
-    display: inline-block;
+}
+
+.description {
+    color: hsl(234, 29%, 20%);
+    margin-bottom: 25px;
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+.features {
+    margin-bottom: 35px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 12px;
+    gap: 15px;
+}
+
+.feature-item img {
+    width: 18px;
+    height: 18px;
+    margin-top: 3px;
+}
+
+.feature-item span {
+    color: hsl(234, 29%, 20%);
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.label-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: hsl(234, 29%, 20%);
+}
+
+.error-message {
+    color: hsl(4, 100%, 67%);
+    font-size: 0.75rem;
+    font-weight: 700;
+    display: none;
+}
+
+input {
+    width: 100%;
+    padding: 16px 20px;
+    border: 1px solid hsl(231, 7%, 60%);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: hsl(234, 29%, 20%);
+}
+
+input::placeholder {
+    color: hsl(231, 7%, 60%);
+}
+
+.input-error {
+    border: 1px solid hsl(4, 100%, 67%);
+    background-color: rgba(255, 98, 87, 0.1);
+    color: hsl(4, 100%, 67%);
+}
+
+button {
+    width: 100%;
+    padding: 16px;
+    background-color: hsl(234, 29%, 20%);
+    color: white;
     border: none;
-  
-  } 
-  
-  button:active {
-    scale: 0.92;
-  }
-  
-  button:hover{
-    background-position: absolute;
-    background-image: none;
-    background-color: linear-gradient( 90deg, #f84c80 30%, #fc5d0d 100%);
-    background: linear-gradient( 90deg, #f84c80 30%,#fc5d0d 100%);
-    transform: 0.3s;
-    background-clip: bottom;
-    -webkit-bottom-fill-color: transparent;
-     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
-  }
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(90deg, #FF527B, #FF6A3A);
+    box-shadow: 0 10px 20px rgba(255, 106, 58, 0.3);
+    transform: translateY(-2px);
+}
+
+/* PÁGINA DE SUCESSO */
+.success-container {
+    background-color: white;
+    border-radius: 35px;
+    padding: 50px;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.success-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.success-content img {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 35px;
+}
+
+.success-content h1 {
+    font-size: 3.5rem;
+    color: hsl(234, 29%, 20%);
+    line-height: 1;
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+.success-content p {
+    color: hsl(234, 29%, 20%);
+    line-height: 1.6;
+    margin-bottom: 40px;
+    font-size: 1rem;
+}
+
+.success-content strong {
+    color: hsl(234, 29%, 20%);
+    font-weight: 700;
+}
+
+.success-button {
+    width: 100%;
+    padding: 18px;
+    background-color: hsl(234, 29%, 20%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.success-button:hover {
+    background: linear-gradient(90deg, #FF527B, #FF6A3A);
+    box-shadow: 0 10px 20px rgba(255, 106, 58, 0.3);
+    transform: translateY(-2px);
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+    /* Página principal mobile */
+    .container {
+        flex-direction: column-reverse;
+        padding: 0;
+        border-radius: 0;
+        gap: 0;
+        min-height: 100vh;
+    }
+    
+    .content {
+        padding: 40px 25px;
+    }
+    
+    .image-container {
+        width: 100%;
+    }
+    
+    #illustration {
+        border-radius: 0 0 15px 15px;
+        width: 100%;
+    }
+    
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    /* Página de sucesso mobile */
+    .success-container {
+        min-height: 100vh;
+        border-radius: 0;
+        padding: 40px 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .success-content {
+        width: 100%;
+    }
+    
+    .success-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .success-content p {
+        margin-bottom: 0;
+    }
+    
+    .success-button {
+        margin-top: 40px;
+    }
+}
